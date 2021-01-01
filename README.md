@@ -19,10 +19,10 @@ A simple Python script to download google images using selenium framework.
 
     This will download 5 car images and save them in the same directory of the script.
 
-* ```python3 google_crawler.py --limit 5 --query car --webdriver ~/Desktop/chromedriver --directory ~/Desktop/cars_images```
+* ```python3 google_crawler.py --limit 5 --query car --webdriver ~/Desktop/chromedriver --directory ~/Desktop/car_images```
 
     This will download 5 car images and save them in ~/Desktop/car_images directory.
 
-*  ```python3 google_crawler.py --query car --webdriver ~/Desktop/chromedriver --directory ~/Desktop/cars_images -all```
+*  ```python3 google_crawler.py --query car --webdriver ~/Desktop/chromedriver --directory ~/Desktop/car_images -all```
 
     This will download all found car images and save them in ~/Desktop/car_images directory.

@@ -15,7 +15,7 @@ SCROLL_PAUSE_TIME = 1.0
 logging.basicConfig(level=logging.INFO)
 
 
-def getArguments():
+def get_arguments():
     logging.info("Getting application agruments")
     parser = argparse.ArgumentParser(description="Process some integers.")
     parser.add_argument(
@@ -51,15 +51,17 @@ def getArguments():
     return args
 
 
-def loadWebBrowserPage(webdriverPath, query):
+def load_web_browser_page(webdriverPath, query):
     logging.info(
         "Opening https://www.google.co.in/search?q="
         + query
         + "&source=lnms&tbm=isch on Google Chrome"
     )
+
     # Check whether the webdriver path is correct or not
     if os.path.isfile(webdriverPath) == False:
         logging.error("Webdriver was not found")
+
         # Terminate the script if the webdriver path is incorrect
         sys.exit()
 
@@ -70,7 +72,7 @@ def loadWebBrowserPage(webdriverPath, query):
     return driver
 
 
-def scrollToTheBottomAndLoadMoreImages(driver):
+def scroll_to_the_bottom_and_load_more_images(driver):
     logging.info("Scrolling down to load more images")
     last_height = driver.execute_script("return document.body.scrollHeight")
     while True:
@@ -96,7 +98,7 @@ def scrollToTheBottomAndLoadMoreImages(driver):
         last_height = new_height
 
 
-def downloadImages(driver, args):
+def download_images(driver, args):
     images = driver.find_elements_by_class_name("Q4LuWd")
     if args.all:
         args.limit = len(images)
@@ -105,6 +107,7 @@ def downloadImages(driver, args):
     bar = progressbar.ProgressBar(max_value=args.limit)
     img = 0
     while img < args.limit and img < len(images):
+
         # Open the image in a new tab and get its url
         ActionChains(driver).key_down(Keys.COMMAND).click(images[img]).key_up(
             Keys.COMMAND
@@ -142,7 +145,7 @@ def downloadImages(driver, args):
 
 
 if __name__ == "__main__":
-    args = getArguments()
-    driver = loadWebBrowserPage(args.webdriver, args.query)
-    scrollToTheBottomAndLoadMoreImages(driver)
-    downloadImages(driver, args)
+    args = get_arguments()
+    driver = load_web_browser_page(args.webdriver, args.query)
+    scroll_to_the_bottom_and_load_more_images(driver)
+    download_images(driver, args)
