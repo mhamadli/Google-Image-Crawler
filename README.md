@@ -1,28 +1,51 @@
 # Google Image Crawler
-A simple Python script to download google images using selenium framework.
 
-# Dependencies
-* *pip3 install selenium*
-* *pip3 install progressbar2*
-* *pip3 install urllib3*
-* *pip3 install argparse*
+Are you tired of searching for images on Google and downloading them one by one? Fear not, the Google Image Crawler is here to save the day! 🌟
 
-# How to use?
-1. Selenium requires a driver to interface with the chosen browser, in this script chrome browser was chosen to work with.
+## What is this?
 
-    Download chrome webdriver from [here](https://sites.google.com/a/chromium.org/chromedriver/downloads), (*make sure to download the version that matches you Google Chrome version*).
+This is a simple Python script that uses the Selenium framework to download images from Google. It's easy to use and can save you a lot of time and effort. 😎
 
-1. Run this command: ```python3 google_crawler.py [--limit LIMIT] [--query QUERY] [--directory DIRECTORY] [--webdriver WEBDRIVER_PATH] [-all]```
+## Dependencies
 
-# Example
-* ```python3 google_crawler.py --limit 5 --query car --webdriver ~/Desktop/chromedriver```
+To run this script, you need to have the following packages installed:
 
-    This will download 5 car images and save them in the same directory of the script.
+* `selenium` 🐍
+* `progressbar2` 📊
+* `urllib3` 🌐
+* `argparse` 🤖
 
-* ```python3 google_crawler.py --limit 5 --query car --webdriver ~/Desktop/chromedriver --directory ~/Desktop/car_images```
+You can install these packages using pip. For example:
 
-    This will download 5 car images and save them in ~/Desktop/car_images directory.
+`pip3 install selenium`
 
-*  ```python3 google_crawler.py --query car --webdriver ~/Desktop/chromedriver --directory ~/Desktop/car_images -all```
 
-    This will download all found car images and save them in ~/Desktop/car_images directory.
+## How to use?
+
+1. Download the Chrome webdriver from [here](https://sites.google.com/a/chromium.org/chromedriver/downloads). Make sure to download the version that matches your Google Chrome version. More drivers can be found [here](https://selenium-python.readthedocs.io/installation.html).
+
+2. Run the script using the following command:
+
+`python3 google_crawler.py [--limit LIMIT] [--query QUERY] [--directory DIRECTORY] [--webdriver WEBDRIVER_PATH] [-all]`
+
+Here are the options you can use:
+
+* `--limit`: The maximum number of images to download. Default is 10.
+* `--query`: The search query for the images. Default is 'nature'.
+* `--directory`: The directory where the images will be saved. Default is the current directory.
+* `--webdriver`: The path to the Chrome webdriver executable. Default is '/usr/bin/chromedriver'.
+* `-all`: Download all images found, instead of just a limited number.
+
+Here are some examples:
+
+`python3 google_crawler.py --limit 5 --query cat --directory ~/Downloads --webdriver /path/to/chromedriver`
+
+
+This will download 5 cat images and save them in the specified directory.
+
+`python3 google_crawler.py --query dog --directory ~/Pictures --webdriver /path/to/chromedriver -all`
+
+
+This will download all the dog images found and save them in the specified directory.
+
+Happy crawling! 🕷️🕸️
